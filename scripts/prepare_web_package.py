@@ -30,7 +30,8 @@ def _clean_package_dir(package_dir: Path) -> None:
 
 def prepare_web_package(*, skip_build: bool = False) -> None:
     if not skip_build:
-        subprocess.run(["npm", "run", "build"], cwd=WEB_DIR, check=True)
+        import os
+        subprocess.run(["npm", "run", "build"], cwd=WEB_DIR, check=True, shell=os.name == "nt")
 
     standalone = WEB_DIR / ".next" / "standalone"
     static_dir = WEB_DIR / ".next" / "static"

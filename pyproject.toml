@@ -349,6 +349,7 @@ markers = [
 ]
 asyncio_default_fixture_loop_scope = "function"
 addopts = [
+    "--import-mode=importlib",
     "--strict-markers",
     "--strict-config",
     "--disable-warnings",
